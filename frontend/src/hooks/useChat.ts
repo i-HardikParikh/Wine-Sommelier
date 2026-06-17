@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback } from 'react'
 import { chatApi } from '../api/client'
 import toast from 'react-hot-toast'
 
@@ -24,7 +24,6 @@ export function useChat() {
   const [sessionId, setSessionId] = useState<string | undefined>()
   const [isLoading, setIsLoading] = useState(false)
   const [sessions, setSessions] = useState<Session[]>([])
-  const abortRef = useRef<AbortController | null>(null)
 
   const sendMessage = useCallback(async (question: string) => {
     if (!question.trim() || isLoading) return

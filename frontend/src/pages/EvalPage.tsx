@@ -86,7 +86,7 @@ export default function EvalPage() {
               <FlaskConical className="text-gold" size={22} />
               <h1 className="font-display text-2xl text-cream">Evaluation Suite</h1>
             </div>
-            <p className="font-body italic text-wine-400">
+            <p className="font-body italic text-wine-200">
               LLM-as-judge: automatically score your sommelier on Relevance, Faithfulness, Completeness & Tone.
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function EvalPage() {
           {/* Run controls */}
           <div className="card p-5 mb-6 flex items-center gap-6">
             <div>
-              <label className="text-xs font-sans text-wine-400 uppercase tracking-widest block mb-1.5">
+              <label className="text-xs font-sans text-wine-200 uppercase tracking-widest block mb-1.5">
                 Samples
               </label>
               <input
@@ -113,7 +113,7 @@ export default function EvalPage() {
               <Play size={15} />
               {isRunning ? 'Running…' : 'Run Evaluation'}
             </button>
-            <p className="text-wine-600 text-xs font-sans mt-4">
+            <p className="text-wine-200 text-xs font-sans mt-4">
               Each sample runs the full RAG pipeline + 4 judge calls.
             </p>
           </div>
@@ -121,9 +121,9 @@ export default function EvalPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Run list */}
             <div className="space-y-2">
-              <p className="text-xs font-sans text-wine-500 uppercase tracking-widest mb-3">Past Runs</p>
+              <p className="text-xs font-sans text-wine-300 uppercase tracking-widest mb-3">Past Runs</p>
               {runs.length === 0 && (
-                <p className="text-wine-700 text-sm font-sans italic">No runs yet.</p>
+                <p className="text-wine-200 text-sm font-sans italic">No runs yet.</p>
               )}
               {runs.map((run) => {
                 const avg = Object.values(run.aggregate_scores).reduce((a, b) => a + b, 0) /
@@ -139,7 +139,7 @@ export default function EvalPage() {
                     <div className="flex justify-between items-start">
                       <div>
                         <p className="text-cream text-sm font-sans">{run.num_samples} samples</p>
-                        <p className="text-wine-600 text-xs font-sans">
+                        <p className="text-wine-300 text-xs font-sans">
                           {new Date(run.started_at).toLocaleDateString()}
                         </p>
                       </div>
@@ -156,7 +156,7 @@ export default function EvalPage() {
             <div className="lg:col-span-2 space-y-5">
               {selectedRunData && radarData.length > 0 && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="card p-5">
-                  <p className="text-xs font-sans text-wine-500 uppercase tracking-widest mb-4">Aggregate Scores</p>
+                  <p className="text-xs font-sans text-wine-300 uppercase tracking-widest mb-4">Aggregate Scores</p>
                   <ResponsiveContainer width="100%" height={220}>
                     <RadarChart data={radarData}>
                       <PolarGrid stroke="rgba(114,47,55,0.4)" />
@@ -169,7 +169,8 @@ export default function EvalPage() {
                         strokeWidth={2}
                       />
                       <Tooltip
-                        contentStyle={{ background: '#1a0508', border: '1px solid #722F37', borderRadius: '2px', fontSize: 12 }}
+                        contentStyle={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '2px', fontSize: 12, color: '#111827' }}
+                        itemStyle={{ color: '#111827' }}
                         formatter={(v: number) => [`${v}/100`, 'Score']}
                       />
                     </RadarChart>
@@ -194,7 +195,7 @@ export default function EvalPage() {
                       <p className="text-cream text-sm font-sans truncate">{r.question}</p>
                       <div className="flex gap-3 mt-1">
                         {r.scores.map((s) => (
-                          <span key={s.metric} className="text-xs font-sans text-wine-500">
+                          <span key={s.metric} className="text-xs font-sans text-wine-300">
                             {s.metric.split('_')[0]}: <span className={scoreColor(s.score)}>{(s.score * 100).toFixed(0)}</span>
                           </span>
                         ))}
@@ -215,18 +216,18 @@ export default function EvalPage() {
                       className="border-t border-wine-800/30 px-5 py-4 space-y-4"
                     >
                       <div>
-                        <p className="text-xs font-sans text-wine-500 uppercase tracking-widest mb-1.5">Answer</p>
-                        <p className="font-body text-cream/80 text-sm leading-relaxed">{r.answer}</p>
+                        <p className="text-xs font-sans text-wine-300 uppercase tracking-widest mb-1.5">Answer</p>
+                        <p className="font-body text-cream text-sm leading-relaxed">{r.answer}</p>
                       </div>
                       <div>
-                        <p className="text-xs font-sans text-wine-500 uppercase tracking-widest mb-2">Judge Reasoning</p>
+                        <p className="text-xs font-sans text-wine-300 uppercase tracking-widest mb-2">Judge Reasoning</p>
                         <div className="space-y-2">
                           {r.scores.map((s) => (
                             <div key={s.metric} className="flex gap-3">
                               <span className={`text-xs font-mono w-28 shrink-0 ${scoreColor(s.score)}`}>
                                 {s.metric} {(s.score * 100).toFixed(0)}
                               </span>
-                              <p className="text-wine-400 text-xs font-sans leading-relaxed">{s.reasoning}</p>
+                              <p className="text-wine-200 text-xs font-sans leading-relaxed">{s.reasoning}</p>
                             </div>
                           ))}
                         </div>

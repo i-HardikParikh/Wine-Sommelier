@@ -5,6 +5,7 @@ from pydantic import field_validator
 
 
 
+# Configuration models
 class WineRAGConfig(BaseSettings):
     # ─── OpenAI (PRIMARY) ────────────────────────────────────────────────────
     # Always tried first for every LLM call (chat, vision, eval) and is the

@@ -65,7 +65,7 @@ export default function MessageInput({ onSend, isLoading, disabled }: Props) {
                 key={i}
                 onClick={() => useSuggestion(s)}
                 className="text-xs font-sans px-3 py-1.5 rounded-sm border border-wine-700/40
-                           text-wine-400 hover:text-gold hover:border-gold/40 transition-all duration-150"
+                           text-wine-200 hover:text-gold hover:border-gold/40 transition-all duration-150"
               >
                 {s}
               </button>
@@ -78,7 +78,7 @@ export default function MessageInput({ onSend, isLoading, disabled }: Props) {
       <div className="flex items-end gap-3">
         <button
           onClick={() => setShowSuggestions(!showSuggestions)}
-          className="text-wine-600 hover:text-wine-400 text-xs font-sans pb-3 transition-colors whitespace-nowrap"
+          className="text-wine-200 hover:text-wine-100 text-xs font-sans pb-3 transition-colors whitespace-nowrap"
         >
           💡 Ideas
         </button>
@@ -99,7 +99,7 @@ export default function MessageInput({ onSend, isLoading, disabled }: Props) {
           <button
             onClick={handleSend}
             disabled={!value.trim() || isLoading}
-            className="absolute right-3 bottom-3 text-wine-500 hover:text-gold disabled:opacity-30
+            className="absolute right-3 bottom-3 text-wine-300 hover:text-gold disabled:opacity-30
                        transition-colors duration-150"
           >
             {isLoading
@@ -109,7 +109,7 @@ export default function MessageInput({ onSend, isLoading, disabled }: Props) {
         </div>
       </div>
 
-      <p className="text-wine-700 text-xs font-sans text-center mt-2">
+      <p className="text-wine-300 text-xs font-sans text-center mt-2">
         Press Enter to send · Shift+Enter for new line
       </p>
     </div>

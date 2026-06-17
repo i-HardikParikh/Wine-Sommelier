@@ -9,12 +9,12 @@ interface Props {
 }
 
 const pipelineColors: Record<string, string> = {
-  analyze_query:    'text-blue-400',
-  vector_search:    'text-purple-400',
-  vision_analysis:  'text-pink-400',
-  ocr_analysis:     'text-orange-400',
-  answer_synthesis: 'text-green-400',
-  fallback:         'text-yellow-400',
+  analyze_query:    'text-blue-600 font-semibold',
+  vector_search:    'text-purple-600 font-semibold',
+  vision_analysis:  'text-pink-600 font-semibold',
+  ocr_analysis:     'text-orange-600 font-semibold',
+  answer_synthesis: 'text-green-600 font-semibold',
+  fallback:         'text-yellow-600 font-semibold',
 }
 
 export default function ChatBubble({ message }: Props) {
@@ -30,7 +30,7 @@ export default function ChatBubble({ message }: Props) {
     >
       <div className={`max-w-[78%] ${isUser ? 'items-end' : 'items-start'} flex flex-col gap-1`}>
         {/* Avatar label */}
-        <span className="text-xs font-sans text-wine-500 px-1">
+        <span className="text-xs font-sans text-wine-300 px-1">
           {isUser ? 'You' : '🍷 Sommelier'}
         </span>
 
@@ -38,16 +38,16 @@ export default function ChatBubble({ message }: Props) {
         <div
           className={`rounded-sm px-5 py-4 ${
             isUser
-              ? 'bg-wine-800/60 border border-wine-700/40 text-cream'
-              : 'bg-wine-950/80 border border-wine-800/30 text-cream/90'
+              ? 'bg-burgundy text-white border border-burgundy/20 shadow-sm'
+              : 'bg-white border border-wine-800/80 text-cream shadow-sm'
           }`}
         >
           {isUser ? (
             <p className="font-sans text-sm leading-relaxed">{message.content}</p>
           ) : (
-            <div className="font-body text-base leading-relaxed prose prose-invert prose-sm max-w-none
-                            prose-p:my-1.5 prose-headings:font-display prose-headings:text-cream
-                            prose-strong:text-gold prose-em:text-wine-300">
+            <div className="font-body text-base leading-relaxed prose prose-sm max-w-none
+                            prose-p:my-1.5 prose-headings:font-display prose-headings:text-wine-50
+                            prose-strong:text-burgundy prose-em:text-wine-600">
               <ReactMarkdown>{message.content}</ReactMarkdown>
             </div>
           )}
@@ -58,13 +58,13 @@ export default function ChatBubble({ message }: Props) {
           <div className="px-1 w-full">
             <button
               onClick={() => setShowMeta(!showMeta)}
-              className="flex items-center gap-1 text-wine-600 hover:text-wine-400 text-xs font-sans transition-colors"
+              className="flex items-center gap-1 text-wine-200 hover:text-wine-100 text-xs font-sans transition-colors"
             >
               <Zap size={11} />
               {showMeta ? 'Hide' : 'Show'} pipeline
               {showMeta ? <ChevronUp size={11} /> : <ChevronDown size={11} />}
               {message.latencyMs && (
-                <span className="ml-2 text-wine-700">{message.latencyMs.toFixed(0)}ms</span>
+                <span className="ml-2 text-wine-300">{message.latencyMs.toFixed(0)}ms</span>
               )}
             </button>
 
@@ -88,10 +88,10 @@ export default function ChatBubble({ message }: Props) {
                 {/* Sources */}
                 {message.sources?.length ? (
                   <div>
-                    <p className="text-wine-600 text-xs font-sans mb-1">Sources:</p>
+                    <p className="text-wine-200 text-xs font-sans mb-1">Sources:</p>
                     <div className="flex flex-wrap gap-1">
                       {message.sources.map((s, i) => (
-                        <span key={i} className="text-xs font-sans px-2 py-0.5 bg-wine-900/40 border border-wine-800/30 text-wine-400 rounded-sm">
+                        <span key={i} className="text-xs font-sans px-2 py-0.5 bg-wine-900/40 border border-wine-800/30 text-wine-100 rounded-sm">
                           📄 {s}
                         </span>
                       ))}
@@ -104,7 +104,7 @@ export default function ChatBubble({ message }: Props) {
         )}
 
         {/* Timestamp */}
-        <span className="text-wine-700 text-xs px-1 font-sans">
+        <span className="text-wine-300 text-xs px-1 font-sans">
           {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </span>
       </div>

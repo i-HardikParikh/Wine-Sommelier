@@ -42,7 +42,7 @@ export default function Sidebar() {
           <Wine className="text-gold" size={20} />
           <span className="font-display text-lg text-cream">Sommelier</span>
         </div>
-        <p className="text-wine-500 text-xs mt-0.5 font-sans">{user?.full_name}</p>
+        <p className="text-wine-300 text-xs mt-0.5 font-sans">{user?.full_name}</p>
       </div>
 
       {/* New Chat */}
@@ -50,7 +50,7 @@ export default function Sidebar() {
         <button
           onClick={() => { newSession(); navigate('/chat') }}
           className="flex items-center gap-2 w-full px-3 py-2.5 rounded-sm border border-wine-700/40
-                     text-cream/70 hover:text-gold hover:border-gold/40 text-sm font-sans
+                     text-wine-100 hover:text-gold hover:border-gold/40 text-sm font-sans
                      transition-all duration-200"
         >
           <Plus size={15} />
@@ -72,13 +72,13 @@ export default function Sidebar() {
                          text-sm font-sans transition-all duration-150
                          ${s.session_id === sessionId
                            ? 'bg-wine-800/50 text-gold'
-                           : 'text-cream/60 hover:bg-wine-900/60 hover:text-cream/90'}`}
+                           : 'text-wine-200 hover:bg-wine-900/60 hover:text-wine-50'}`}
               onClick={() => { switchSession(s.session_id); navigate('/chat') }}
             >
               <span className="truncate flex-1">{s.title}</span>
               <button
                 onClick={(e) => { e.stopPropagation(); deleteSession(s.session_id) }}
-                className="opacity-0 group-hover:opacity-100 text-wine-500 hover:text-wine-300 ml-1 transition-opacity"
+                className="opacity-0 group-hover:opacity-100 text-wine-300 hover:text-wine-100 ml-1 transition-opacity"
               >
                 <Trash2 size={13} />
               </button>
@@ -97,7 +97,7 @@ export default function Sidebar() {
                      transition-all duration-200 text-xs font-sans
                      ${isDragActive
                        ? 'border-gold/60 bg-gold/5 text-gold'
-                       : 'border-wine-700/40 text-wine-500 hover:border-wine-600 hover:text-wine-400'}`}
+                       : 'border-wine-700/40 text-wine-300 hover:border-wine-600 hover:text-wine-200'}`}
         >
           <input {...getInputProps()} />
           <Upload size={13} className="inline mr-1.5" />
@@ -111,7 +111,7 @@ export default function Sidebar() {
                      transition-all duration-150
                      ${location.pathname === '/eval'
                        ? 'text-gold bg-wine-800/40'
-                       : 'text-wine-500 hover:text-wine-300'}`}
+                       : 'text-wine-300 hover:text-wine-100'}`}
         >
           <FlaskConical size={13} />
           Evaluation Suite
@@ -121,7 +121,7 @@ export default function Sidebar() {
         <button
           onClick={() => { logout(); navigate('/login') }}
           className="flex items-center gap-2 w-full px-3 py-2 rounded-sm text-xs font-sans
-                     text-wine-600 hover:text-wine-400 transition-all duration-150"
+                     text-wine-200 hover:text-wine-50 transition-all duration-150"
         >
           <LogOut size={13} />
           Sign Out

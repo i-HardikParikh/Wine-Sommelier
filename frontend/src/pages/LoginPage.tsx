@@ -58,15 +58,15 @@ export default function LoginPage() {
         {/* Card */}
         <div className="card p-8">
           {/* Mode toggle */}
-          <div className="flex rounded-sm border border-wine-700/40 mb-8 overflow-hidden">
+          <div className="flex rounded-sm border border-wine-800 mb-8 overflow-hidden bg-wine-900">
             {(['login', 'register'] as Mode[]).map((m) => (
               <button
                 key={m}
                 onClick={() => setMode(m)}
                 className={`flex-1 py-2.5 text-sm font-sans font-medium capitalize transition-all duration-200 ${
                   mode === m
-                    ? 'bg-wine-700/60 text-gold'
-                    : 'text-cream/50 hover:text-cream/80'
+                    ? 'bg-burgundy text-white shadow-sm'
+                    : 'text-wine-300 hover:text-wine-100'
                 }`}
               >
                 {m === 'login' ? 'Sign In' : 'Create Account'}

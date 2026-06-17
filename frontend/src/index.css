@@ -5,10 +5,10 @@
 @layer base {
   :root {
     --wine-primary: #722F37;
-    --wine-dark: #430a1a;
-    --wine-light: #9b4a55;
-    --cream: #F5F0E8;
-    --gold: #C9A84C;
+    --wine-dark: #faf9f6;
+    --wine-light: #e5e7eb;
+    --cream: #111827;
+    --gold: #9a7b2c;
   }
 
   * { box-sizing: border-box; }
@@ -16,8 +16,8 @@
   body {
     @apply bg-wine-950 text-cream font-sans;
     background-image: 
-      radial-gradient(ellipse at 20% 20%, rgba(114, 47, 55, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, rgba(67, 10, 26, 0.2) 0%, transparent 50%);
+      radial-gradient(ellipse at 20% 20%, rgba(114, 47, 55, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(114, 47, 55, 0.05) 0%, transparent 50%);
     min-height: 100vh;
   }
 
@@ -44,7 +44,7 @@
   }
 
   .input-field {
-    @apply w-full bg-wine-950/80 border border-wine-700/50 text-cream placeholder-wine-600
+    @apply w-full bg-white border border-wine-800 text-cream placeholder-wine-400
            px-4 py-3 rounded-sm font-sans text-sm outline-none
            focus:border-gold/50 focus:ring-1 focus:ring-gold/20 transition-all duration-200;
   }

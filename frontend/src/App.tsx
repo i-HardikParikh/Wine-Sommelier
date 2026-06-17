@@ -28,11 +28,12 @@ export default function App() {
           position="top-right"
           toastOptions={{
             style: {
-              background: '#1a0508',
-              border: '1px solid #722F37',
-              color: '#F5F0E8',
+              background: '#ffffff',
+              border: '1px solid #e5e7eb',
+              color: '#111827',
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '13px',
+              boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
             },
           }}
         />

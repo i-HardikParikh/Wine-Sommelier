@@ -5,25 +5,25 @@ export default {
     extend: {
       colors: {
         wine: {
-          50:  '#fdf2f4',
-          100: '#fce7ea',
-          200: '#f9d0d8',
-          300: '#f4aab8',
-          400: '#ec7590',
-          500: '#e04a6e',
-          600: '#cc2952',
-          700: '#ab1e42',
-          800: '#8f1c3c',
-          900: '#7a1b38',
-          950: '#430a1a',
+          50:  '#111827', // Darkest text
+          100: '#1f2937', // Dark text
+          200: '#374151',
+          300: '#4b5563', // Secondary text
+          400: '#6b7280', // Muted text
+          500: '#9ca3af', // Border or light lines
+          600: '#722F37', // Wine brand color (primary accent)
+          700: '#d1d5db', // Light border
+          800: '#e5e7eb', // Border / bubble bg
+          900: '#f3f4f6', // Light gray bg
+          950: '#faf9f6', // Main app background (soft off-white)
         },
         burgundy: {
           DEFAULT: '#722F37',
-          dark: '#4a1a20',
-          light: '#9b4a55',
+          dark: '#5c242a',
+          light: '#8b3d48',
         },
-        cream: '#F5F0E8',
-        gold: '#C9A84C',
+        cream: '#111827', // Main text color
+        gold: '#9a7b2c',   // High-contrast gold for light background
       },
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
@@ -32,8 +32,8 @@ export default {
         sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
-        'wine-gradient': 'linear-gradient(135deg, #722F37 0%, #430a1a 50%, #1a0508 100%)',
-        'gold-gradient': 'linear-gradient(135deg, #C9A84C 0%, #e8c96a 50%, #C9A84C 100%)',
+        'wine-gradient': 'linear-gradient(135deg, #faf9f6 0%, #f3f4f6 50%, #e5e7eb 100%)',
+        'gold-gradient': 'linear-gradient(135deg, #9a7b2c 0%, #c9a84c 50%, #9a7b2c 100%)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',
