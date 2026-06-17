@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+  # ─── FastAPI Backend ──────────────────────────────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: wine_backend
+    env_file: .env
+    environment:
+      - APP_ENV=production
+      - DATABASE_URL=sqlite:////data/wine_sommelier.db
+    volumes:
+      - wine_data:/data
+      - wine_logs:/app/logs
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+    networks:
+      - wine_net
+
+  # ─── React Frontend (via Nginx) ───────────────────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: wine_frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - wine_net
+
+volumes:
+  wine_data:
+    driver: local
+  wine_logs:
+    driver: local
+
+networks:
+  wine_net:
+    driver: bridge

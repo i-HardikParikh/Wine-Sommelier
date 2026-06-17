@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --wine-primary: #722F37;
+    --wine-dark: #430a1a;
+    --wine-light: #9b4a55;
+    --cream: #F5F0E8;
+    --gold: #C9A84C;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    @apply bg-wine-950 text-cream font-sans;
+    background-image: 
+      radial-gradient(ellipse at 20% 20%, rgba(114, 47, 55, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(67, 10, 26, 0.2) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
+  ::-webkit-scrollbar-thumb { background: rgba(201, 168, 76, 0.3); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(201, 168, 76, 0.5); }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gold text-wine-950 font-sans font-medium px-6 py-2.5 rounded-sm
+           hover:brightness-110 active:brightness-90 transition-all duration-200
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply border border-wine-700 text-cream/70 font-sans font-medium px-6 py-2.5 rounded-sm
+           hover:border-gold hover:text-gold transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-wine-950/60 border border-wine-800/40 rounded-sm backdrop-blur-sm;
+  }
+
+  .input-field {
+    @apply w-full bg-wine-950/80 border border-wine-700/50 text-cream placeholder-wine-600
+           px-4 py-3 rounded-sm font-sans text-sm outline-none
+           focus:border-gold/50 focus:ring-1 focus:ring-gold/20 transition-all duration-200;
+  }
+
+  .gold-divider {
+    @apply border-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent;
+  }
+}
